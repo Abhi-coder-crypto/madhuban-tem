@@ -88,10 +88,6 @@ const GalleryCard = ({ image, index, isInView }: {
           <h3 className="font-display text-xl text-foreground mb-2">
             {image.title}
           </h3>
-          <div className="flex items-center gap-2 text-foreground/60 text-sm">
-            <Heart className="w-4 h-4" />
-            <span>{isLiked ? image.likes + 1 : image.likes} likes</span>
-          </div>
         </motion.div>
 
         {/* Animated border */}
