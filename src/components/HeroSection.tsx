@@ -125,21 +125,9 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="flex items-center justify-center gap-2 mb-4"
         >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          >
-            <Sparkles className="w-5 h-5 text-gold" />
-          </motion.div>
           <span className="font-accent text-lg md:text-xl text-gold tracking-[0.3em] uppercase">
             Welcome to
           </span>
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          >
-            <Sparkles className="w-5 h-5 text-gold" />
-          </motion.div>
         </motion.div>
 
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground mb-6 leading-tight overflow-hidden">
