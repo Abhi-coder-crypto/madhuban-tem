@@ -5,11 +5,13 @@ import { Button } from './ui/button';
 import { MagneticButton } from './ui/MagneticButton';
 import logoImage from '../assets/logo.png';
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
+const scrollToSection = (sectionId: string, delay = 0) => {
+  setTimeout(() => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, delay);
 };
 
 const Navigation = () => {
@@ -187,8 +189,8 @@ const Navigation = () => {
                     key={link.href}
                     className="text-foreground/80 hover:text-foreground font-body text-lg py-3 px-4 rounded-xl hover:bg-accent/10 transition-colors flex items-center gap-3 w-full text-left"
                     onClick={() => {
-                      scrollToSection(link.href.slice(1));
                       setIsMobileMenuOpen(false);
+                      scrollToSection(link.href.slice(1), 150);
                     }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
