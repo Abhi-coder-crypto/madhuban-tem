@@ -66,14 +66,18 @@ const Navigation = () => {
             <MagneticButton strength={0.2}>
               <motion.a
                 href="#"
-                className="flex items-center gap-2"
+                className="flex items-center gap-3"
                 whileHover={{ scale: 1.05 }}
               >
                 <img 
                   src={logoImage} 
                   alt="Madhuvan Greens Logo" 
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                  className="w-14 h-14 md:w-16 md:h-16 object-contain"
                 />
+                <div className="hidden sm:flex flex-col">
+                  <span className="text-gradient-gold font-display text-xl md:text-2xl tracking-wider">Madhuvan</span>
+                  <span className="text-accent font-display text-lg md:text-xl tracking-wider -mt-1">Greens</span>
+                </div>
               </motion.a>
             </MagneticButton>
           </div>
