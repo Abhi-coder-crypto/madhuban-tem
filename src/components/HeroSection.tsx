@@ -1,8 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { ChevronDown, Sparkles } from 'lucide-react';
 import heroImage from '@/assets/hero-forest.jpg';
+import heroImage2 from '@/assets/hero-forest-2.png';
+import heroImageCave from '@/assets/hero-cave.png';
+import heroImageTropical from '@/assets/hero-tropical.png';
 import { Fireflies, FloatingOrbs, AnimatedGradient } from './ui/Particles';
 import { MagneticButton } from './ui/MagneticButton';
 
@@ -49,10 +52,20 @@ const AnimatedText = ({ children, delay = 0 }: { children: string; delay?: numbe
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   });
+
+  const images = [heroImage, heroImage2, heroImageCave, heroImageTropical];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -64,16 +77,22 @@ const HeroSection = () => {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Parallax */}
+      {/* Background Image with Parallax and Fade Animation */}
       <motion.div
         className="absolute inset-0 z-0"
         style={{ y, scale }}
       >
-        <img
-          src={heroImage}
-          alt="Forest dining ambiance"
-          className="w-full h-full object-cover"
-        />
+        {images.map((image, index) => (
+          <motion.img
+            key={index}
+            src={image}
+            alt="Forest dining ambiance"
+            className="absolute w-full h-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
+            transition={{ duration: 1 }}
+          />
+        ))}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
         {/* Green glow overlay */}
