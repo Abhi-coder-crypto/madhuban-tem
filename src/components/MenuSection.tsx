@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Button } from './ui/button';
-import { Utensils, Flame, Star, ChefHat, Sparkles } from 'lucide-react';
+import { Utensils, Flame, Star, ChefHat } from 'lucide-react';
 import { SpotlightCard } from './ui/AnimatedCard';
 import { GlowButton } from './ui/MagneticButton';
 
