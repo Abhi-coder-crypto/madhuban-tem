@@ -62,7 +62,7 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-center relative">
           {/* Logo */}
-          <div className="absolute left-0">
+          <div className="absolute left-0 flex items-center h-full">
             <MagneticButton strength={0.2}>
               <motion.a
                 href="#"
