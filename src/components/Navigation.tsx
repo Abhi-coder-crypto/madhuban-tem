@@ -118,7 +118,7 @@ const Navigation = () => {
           </div>
 
           {/* Right side items */}
-          <div className="absolute right-0 flex items-center gap-4">
+          <div className="absolute right-0 mr-4 md:mr-8 flex items-center gap-4">
             {/* Mobile Menu Button */}
             <motion.button
               className="md:hidden text-foreground p-2 glass-card rounded-lg"
