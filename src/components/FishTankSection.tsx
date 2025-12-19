@@ -1,7 +1,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Fish, Waves, Droplets, Eye } from 'lucide-react';
-import fishTankDining from '@/assets/fish-tank-dining.jpg';
+import signatureExperience from '/signature-experience-games.png';
 import { AnimatedIcon } from './ui/AnimatedIcon';
 import { FloatingCard } from './ui/AnimatedCard';
 
@@ -191,8 +191,8 @@ const FishTankSection = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-depth group">
               <motion.img
-                src={fishTankDining}
-                alt="Fish tank dining experience"
+                src={signatureExperience}
+                alt="Signature experience gaming and entertainment"
                 className="w-full h-[500px] lg:h-[600px] object-cover"
                 animate={{ scale: isHovered ? 1.05 : 1 }}
                 transition={{ duration: 0.7 }}
