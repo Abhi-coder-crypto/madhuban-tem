@@ -80,22 +80,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent" />
       </motion.div>
 
-      {/* Dynamic background effects */}
-      <AnimatedGradient />
-      <FloatingOrbs count={4} />
-      <Fireflies count={25} />
-
-      {/* Floating leaves particles */}
-      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
-          <FloatingLeaf
-            key={i}
-            delay={i * 1.5}
-            left={`${5 + i * 8}%`}
-            duration={10 + Math.random() * 8}
-          />
-        ))}
-      </div>
 
       {/* Animated corner decorations */}
       <motion.div

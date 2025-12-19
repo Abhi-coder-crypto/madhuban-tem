@@ -59,26 +59,28 @@ const Navigation = () => {
           isScrolled ? 'glass-card py-3' : 'bg-transparent py-6'
         }`}
       >
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-8 flex items-center justify-center relative">
           {/* Logo */}
-          <MagneticButton strength={0.2}>
-            <motion.a
-              href="#"
-              className="font-display text-2xl md:text-3xl text-foreground tracking-wider flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          <div className="absolute left-0">
+            <MagneticButton strength={0.2}>
+              <motion.a
+                href="#"
+                className="font-display text-2xl md:text-3xl text-foreground tracking-wider flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
               >
-                <Sparkles className="w-5 h-5 text-gold" />
-              </motion.div>
-              <span className="text-gradient-gold">Madhuvan</span>
-              <span className="text-accent">Greens</span>
-            </motion.a>
-          </MagneticButton>
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                >
+                  <Sparkles className="w-5 h-5 text-gold" />
+                </motion.div>
+                <span className="text-gradient-gold">Madhuvan</span>
+                <span className="text-accent">Greens</span>
+              </motion.a>
+            </MagneticButton>
+          </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.href.slice(1);
@@ -111,47 +113,54 @@ const Navigation = () => {
                 </motion.a>
               );
             })}
-            <MagneticButton>
-              <Button variant="gold" size="default" className="relative overflow-hidden group">
-                <span className="relative z-10">Reserve Table</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.5 }}
-                />
-              </Button>
-            </MagneticButton>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            className="md:hidden text-foreground p-2 glass-card rounded-lg"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            whileTap={{ scale: 0.95 }}
-          >
-            <AnimatePresence mode="wait">
-              {isMobileMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                >
-                  <X size={24} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                >
-                  <Menu size={24} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+          {/* Right side items */}
+          <div className="absolute right-0 flex items-center gap-4">
+            {/* Mobile Menu Button */}
+            <motion.button
+              className="md:hidden text-foreground p-2 glass-card rounded-lg"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              whileTap={{ scale: 0.95 }}
+            >
+              <AnimatePresence mode="wait">
+                {isMobileMenuOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                  >
+                    <X size={24} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                  >
+                    <Menu size={24} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* Reserve Table Button */}
+            <div className="hidden md:block">
+              <MagneticButton>
+                <Button variant="gold" size="default" className="relative overflow-hidden group">
+                  <span className="relative z-10">Reserve Table</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </Button>
+              </MagneticButton>
+            </div>
+          </div>
         </div>
 
         {/* Mobile Menu */}
