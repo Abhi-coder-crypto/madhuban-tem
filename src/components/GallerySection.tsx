@@ -1,18 +1,20 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ZoomIn, Heart, Share2 } from 'lucide-react';
-import heroForest from '@/assets/hero-forest.jpg';
-import fishTankDining from '@/assets/fish-tank-dining.jpg';
-import stoneInterior from '@/assets/stone-interior.jpg';
-import forestInterior from '@/assets/forest-interior.jpg';
+import storefront from '/gallery-storefront.png';
+import diningFish from '/gallery-dining-fish.png';
+import familyDining from '/gallery-family-dining.png';
+import bar from '/gallery-bar.png';
+import outdoorSeating from '/gallery-outdoor-seating.png';
+import mainDining from '/gallery-main-dining.png';
 
 const galleryImages = [
-  { src: heroForest, title: 'Evening Ambiance', likes: 234 },
-  { src: fishTankDining, title: 'Aquarium Dining', likes: 456 },
-  { src: stoneInterior, title: 'Cave Interiors', likes: 189 },
-  { src: forestInterior, title: 'Garden Seating', likes: 321 },
-  { src: heroForest, title: 'Candlelit Tables', likes: 278 },
-  { src: fishTankDining, title: 'Private Booths', likes: 412 },
+  { src: storefront, title: 'Madhuvan Storefront', likes: 542 },
+  { src: diningFish, title: 'Aquarium Dining', likes: 678 },
+  { src: familyDining, title: 'Family Dining', likes: 456 },
+  { src: bar, title: 'Craft Bar', likes: 389 },
+  { src: outdoorSeating, title: 'Outdoor Seating', likes: 521 },
+  { src: mainDining, title: 'Main Dining Hall', likes: 612 },
 ];
 
 const GalleryCard = ({ image, index, isInView }: { 
