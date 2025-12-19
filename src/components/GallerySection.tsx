@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { ZoomIn, Heart, Share2 } from 'lucide-react';
 import heroForest from '@/assets/hero-forest.jpg';
 import fishTankDining from '@/assets/fish-tank-dining.jpg';
@@ -119,30 +119,7 @@ const GallerySection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollPosition = 0;
-    const scrollSpeed = 1; // Adjust for faster/slower scrolling
-    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-    const autoScroll = () => {
-      scrollPosition += scrollSpeed;
-      
-      // Loop back to start when reaching the end
-      if (scrollPosition > maxScroll) {
-        scrollPosition = 0;
-      }
-      
-      scrollContainer.scrollLeft = scrollPosition;
-    };
-
-    const interval = setInterval(autoScroll, 30); // Scroll every 30ms for smooth movement
-
-    return () => clearInterval(interval);
-  }, []);
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section
@@ -213,37 +190,37 @@ const GallerySection = () => {
         </motion.div>
       </div>
 
-      {/* Horizontal Scroll Gallery */}
-      <div
+      {/* Marquee Gallery */}
+      <div 
         ref={scrollRef}
-        className="horizontal-scroll gap-6 px-4 md:px-8 pb-4"
+        className="relative overflow-hidden"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
-        {galleryImages.map((image, index) => (
-          <GalleryCard key={index} image={image} index={index} isInView={isInView} />
-        ))}
-      </div>
-
-      {/* Scroll hint with animation */}
-      <motion.div
-        className="text-center mt-8"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ delay: 0.5 }}
-      >
-        <motion.span 
-          className="inline-flex items-center gap-3 text-foreground/40 text-sm glass-card px-4 py-2 rounded-full"
-          animate={{ x: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+        <motion.div
+          className="flex gap-6 px-4 md:px-8 pb-4"
+          animate={{ x: isPaused ? 0 : -1000 }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: 'linear',
+            repeatType: 'loop',
+          }}
         >
-          <motion.span animate={{ x: [0, -5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-            ←
-          </motion.span>
-          <span>Drag to explore</span>
-          <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-            →
-          </motion.span>
-        </motion.span>
-      </motion.div>
+          {/* Original items */}
+          {galleryImages.map((image, index) => (
+            <div key={`original-${index}`} className="flex-shrink-0 w-[300px] md:w-[400px] lg:w-[500px]">
+              <GalleryCard image={image} index={index} isInView={isInView} />
+            </div>
+          ))}
+          {/* Duplicated items for seamless loop */}
+          {galleryImages.map((image, index) => (
+            <div key={`duplicate-${index}`} className="flex-shrink-0 w-[300px] md:w-[400px] lg:w-[500px]">
+              <GalleryCard image={image} index={index} isInView={isInView} />
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
