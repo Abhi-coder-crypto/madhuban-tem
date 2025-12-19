@@ -5,6 +5,13 @@ import { Button } from './ui/button';
 import { MagneticButton } from './ui/MagneticButton';
 import logoImage from '../assets/logo.png';
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -151,7 +158,7 @@ const Navigation = () => {
             {/* Reserve Table Button */}
             <div className="hidden md:block">
               <MagneticButton>
-                <Button variant="gold" size="default" className="relative overflow-hidden group">
+                <Button variant="gold" size="default" className="relative overflow-hidden group" onClick={() => scrollToSection('contact')}>
                   <span className="relative z-10">Reserve Table</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
@@ -194,7 +201,7 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <Button variant="gold" size="lg" className="w-full mt-4">
+                  <Button variant="gold" size="lg" className="w-full mt-4" onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}>
                     Reserve Table
                   </Button>
                 </motion.div>
