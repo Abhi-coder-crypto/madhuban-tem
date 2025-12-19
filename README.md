@@ -1,58 +1,141 @@
-# Welcome to your Lovable project
+# Madhuvan Greens - Restaurant Website
 
-## Project info
+A modern, responsive restaurant website built with React, TypeScript, Vite, and Tailwind CSS. Features smooth animations, responsive design, and a delightful user experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Quick Netlify Deployment
 
-## How can I edit this code?
+This project is fully configured for Netlify with **zero additional setup**. Deploy in seconds!
 
-There are several ways of editing your application.
+### Deploy Now:
 
-**Use Lovable**
+1. **Push to GitHub** (or GitLab/Bitbucket)
+2. **Go to [Netlify](https://netlify.com)**
+3. Click **"New site from Git"** → Select your repo → **Deploy**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+That's it! Netlify automatically:
+- ✅ Detects it's a Vite project
+- ✅ Runs `npm run build`
+- ✅ Deploys the `dist/` folder
+- ✅ Configures SPA routing
+- ✅ Provides free HTTPS
 
-Changes made via Lovable will be committed automatically to this repo.
+**Or drag & drop:** Build locally (`npm run build`), then drop the `dist/` folder on [Netlify Drop](https://app.netlify.com/drop)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite 5
+- **Styling**: Tailwind CSS with animations
+- **Animations**: Framer Motion
+- **UI Components**: Radix UI (Shadcn/ui patterns)
+- **Routing**: React Router v6
+- **Form Handling**: React Hook Form + Zod validation
 
-Follow these steps:
+## Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- ✅ Fully responsive design (mobile, tablet, desktop)
+- ✅ Smooth animations and transitions
+- ✅ Hero section with rotating images
+- ✅ Experience showcase
+- ✅ Auto-scrolling gallery
+- ✅ Dynamic menu with interactive cards
+- ✅ Contact form integration
+- ✅ Dark theme with custom colors
+- ✅ Optimized bundle (~500KB, 155KB gzipped)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Development
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
+- Node.js 16+ and npm
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Installation
+
+```bash
+npm install
+```
+
+### Running Locally
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Opens at `http://localhost:5000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Building
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Creates optimized production build in `dist/`
 
-## What technologies are used for this project?
+## Netlify Configuration
 
-This project is built with:
+**Everything is pre-configured** via `netlify.toml`:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### Adding Environment Variables (if needed)
+
+In Netlify dashboard:
+1. **Site settings** → **Build & deploy** → **Environment**
+2. Add your variables
+3. Auto-available during builds
+
+## Deployment Features
+
+- **Auto-deploy**: Push to git → auto-deploy
+- **Instant rollback**: Previous deployments stay accessible
+- **Free HTTPS**: Automatic SSL certificates
+- **CDN**: Global content distribution
+- **Custom domains**: Full support included
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── Navigation.tsx   # Header
+│   ├── HeroSection.tsx  # Rotating images
+│   ├── ExperienceSection.tsx
+│   ├── GallerySection.tsx
+│   ├── MenuSection.tsx
+│   ├── Footer.tsx
+│   └── ui/             # Shadcn/ui components
+├── assets/             # Images
+├── index.css          # Global styles
+└── App.tsx            # Main app
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Performance
+
+- Build time: ~9 seconds
+- Bundle: ~500KB (155KB gzipped)
+- Lazy image loading
+- Optimized CSS/JS
+
+## Technologies Used
+
+This project uses:
 
 - Vite
 - TypeScript
@@ -60,14 +143,14 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Lovable Integration
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+This project was created with Lovable. You can:
 
-## Can I connect a custom domain to my Lovable project?
+- **Edit locally**: Clone, push changes, auto-synced to Lovable
+- **Edit in Lovable**: Changes auto-commit to repo
+- **Custom domain**: Use Project > Settings > Domains
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 Madhuvan Greens Restaurant. All rights reserved.
