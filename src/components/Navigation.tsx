@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { MagneticButton } from './ui/MagneticButton';
+import logoImage from '../assets/logo.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,17 +66,14 @@ const Navigation = () => {
             <MagneticButton strength={0.2}>
               <motion.a
                 href="#"
-                className="font-display text-2xl md:text-3xl text-foreground tracking-wider flex items-center gap-2"
+                className="flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
               >
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                >
-                  <Sparkles className="w-5 h-5 text-gold" />
-                </motion.div>
-                <span className="text-gradient-gold">Madhuvan</span>
-                <span className="text-accent">Greens</span>
+                <img 
+                  src={logoImage} 
+                  alt="Madhuvan Greens Logo" 
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                />
               </motion.a>
             </MagneticButton>
           </div>
