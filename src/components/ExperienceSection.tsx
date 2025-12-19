@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { Leaf, Fish, Mountain, Lightbulb, ArrowRight } from 'lucide-react';
 import forestInteriorLit from '/forest-interiors-lit.png';
 import forestInteriorCard from '/forest-interiors-card.png';
-import fishTankDining from '@/assets/fish-tank-dining.jpg';
+import fishTankDining from '/fish-tank-dining.png';
 import stoneInterior from '@/assets/stone-interior.jpg';
 import { SpotlightCard, BorderAnimatedCard } from './ui/AnimatedCard';
 import { AnimatedIcon } from './ui/AnimatedIcon';
