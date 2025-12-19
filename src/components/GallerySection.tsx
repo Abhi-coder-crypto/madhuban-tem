@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ZoomIn, Heart, Share2 } from 'lucide-react';
 import heroForest from '@/assets/hero-forest.jpg';
 import fishTankDining from '@/assets/fish-tank-dining.jpg';
@@ -119,6 +119,30 @@ const GallerySection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let scrollPosition = 0;
+    const scrollSpeed = 1; // Adjust for faster/slower scrolling
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+    const autoScroll = () => {
+      scrollPosition += scrollSpeed;
+      
+      // Loop back to start when reaching the end
+      if (scrollPosition > maxScroll) {
+        scrollPosition = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPosition;
+    };
+
+    const interval = setInterval(autoScroll, 30); // Scroll every 30ms for smooth movement
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
