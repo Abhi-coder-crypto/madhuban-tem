@@ -66,18 +66,6 @@ const ExperienceCard = ({ experience, index }: { experience: typeof experiences[
               transition={{ duration: 0.7 }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-            
-            {/* Animated Icon */}
-            <motion.div 
-              className="absolute bottom-4 left-4 p-3 rounded-xl bg-accent/20 backdrop-blur-sm border border-accent/30"
-              animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
-            >
-              <AnimatedIcon 
-                icon={experience.icon} 
-                animate={isHovered ? 'bounce' : 'pulse'} 
-                className="text-accent"
-              />
-            </motion.div>
 
             {/* View more indicator */}
             <motion.div
