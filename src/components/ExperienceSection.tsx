@@ -1,8 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Leaf, Fish, Mountain, Lightbulb, ArrowRight } from 'lucide-react';
-import forestInteriorLit from '/forest-interiors-lit.png';
-import forestInteriorCard from '/forest-interiors-card.png';
+import forestInteriorLit from '/forest-interior-lit.png';
+import forestInteriorCard from '/forest-interior-lit.png';
 import fishTankDining from '/fish-tank-dining.png';
 import stoneInterior from '/stone-cave-walls.png';
 import { SpotlightCard, BorderAnimatedCard } from './ui/AnimatedCard';
