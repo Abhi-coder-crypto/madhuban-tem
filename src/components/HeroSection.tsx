@@ -9,6 +9,13 @@ import heroImageTropical from '@/assets/hero-tropical.png';
 import { Fireflies, FloatingOrbs, AnimatedGradient } from './ui/Particles';
 import { MagneticButton } from './ui/MagneticButton';
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const FloatingLeaf = ({ delay, left, duration }: { delay: number; left: string; duration: number }) => (
   <motion.div
     className="absolute w-4 h-4 pointer-events-none"
@@ -170,7 +177,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 1.1 }}
         >
           <MagneticButton>
-            <Button variant="hero" size="xl" className="relative overflow-hidden group">
+            <Button variant="hero" size="xl" className="relative overflow-hidden group" onClick={() => scrollToSection('contact')}>
               <span className="relative z-10">Reserve a Table</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/30 to-gold/0"
@@ -181,7 +188,7 @@ const HeroSection = () => {
             </Button>
           </MagneticButton>
           <MagneticButton>
-            <Button variant="hero-outline" size="xl">
+            <Button variant="hero-outline" size="xl" onClick={() => scrollToSection('experience')}>
               Explore Experience
             </Button>
           </MagneticButton>
