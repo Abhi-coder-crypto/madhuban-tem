@@ -1,7 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Leaf, Fish, Mountain, Lightbulb, ArrowRight } from 'lucide-react';
-import forestInterior from '@/assets/forest-interior.jpg';
+import forestInteriorLit from '/forest-interiors-lit.png';
+import forestInteriorCard from '/forest-interiors-card.png';
 import fishTankDining from '@/assets/fish-tank-dining.jpg';
 import stoneInterior from '@/assets/stone-interior.jpg';
 import { SpotlightCard, BorderAnimatedCard } from './ui/AnimatedCard';
@@ -13,7 +14,7 @@ const experiences = [
     icon: Leaf,
     title: 'Forest Interiors',
     description: 'Immerse yourself in a lush green paradise with hanging plants, vines, and natural foliage surrounding every table.',
-    image: forestInterior,
+    image: forestInteriorCard,
     color: 'accent',
   },
   {
@@ -34,7 +35,7 @@ const experiences = [
     icon: Lightbulb,
     title: 'Ambient Lighting',
     description: 'Warm, carefully designed lighting creates an intimate atmosphere that shifts with the time of day.',
-    image: forestInterior,
+    image: forestInteriorLit,
     color: 'gold',
   },
 ];
