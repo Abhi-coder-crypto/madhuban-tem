@@ -231,11 +231,11 @@ const Footer = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Leaf className="w-5 h-5 text-background" />
+          <Leaf className="w-5 h-5 text-white" />
           <motion.span
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="text-background font-bold"
+            className="text-white font-bold"
           >
             ↑
           </motion.span>
