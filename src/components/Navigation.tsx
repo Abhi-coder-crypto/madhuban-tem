@@ -72,7 +72,7 @@ const Navigation = () => {
                 <img 
                   src={logoImage} 
                   alt="Madhuvan Greens Logo" 
-                  className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain"
                 />
                 <div className="hidden sm:flex flex-col">
                   <span className="text-gradient-gold font-display text-xl md:text-2xl tracking-wider">Madhuvan</span>
