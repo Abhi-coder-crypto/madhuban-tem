@@ -137,15 +137,6 @@ const MenuCard = ({ category, index }: { category: typeof menuCategories[0]; ind
                     transition={{ delay: i * 0.1 }}
                   />
                   <span className="group-hover:text-foreground transition-colors">{item}</span>
-                  {i === 0 && (
-                    <motion.span
-                      className="ml-auto"
-                      animate={{ rotate: [0, 15, -15, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Sparkles className="w-4 h-4 text-gold" />
-                    </motion.span>
-                  )}
                 </motion.li>
               ))}
             </ul>
