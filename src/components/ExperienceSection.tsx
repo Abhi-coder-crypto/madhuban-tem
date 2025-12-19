@@ -4,7 +4,7 @@ import { Leaf, Fish, Mountain, Lightbulb, ArrowRight } from 'lucide-react';
 import forestInteriorLit from '/forest-interiors-lit.png';
 import forestInteriorCard from '/forest-interiors-card.png';
 import fishTankDining from '/fish-tank-dining.png';
-import stoneInterior from '@/assets/stone-interior.jpg';
+import stoneInterior from '/stone-cave-walls.png';
 import { SpotlightCard, BorderAnimatedCard } from './ui/AnimatedCard';
 import { AnimatedIcon } from './ui/AnimatedIcon';
 import { Fireflies } from './ui/Particles';
