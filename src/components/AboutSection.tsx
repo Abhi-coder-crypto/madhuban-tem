@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Users, UtensilsCrossed, Star } from 'lucide-react';
-import forestInterior from '@/assets/forest-interior.jpg';
+import diningExperience from '/dining-experience.png';
 import { AnimatedCounter, StatCard } from './ui/AnimatedCounter';
 import { Sparkles } from './ui/Particles';
 import { TiltCard, FloatingCard } from './ui/AnimatedCard';
@@ -177,8 +177,8 @@ const AboutSection = () => {
               {/* Main image */}
               <div className="relative rounded-3xl overflow-hidden shadow-depth group">
                 <img
-                  src={forestInterior}
-                  alt="Forest interior dining"
+                  src={diningExperience}
+                  alt="Madhuvan Greens dining experience"
                   className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay gradient */}
