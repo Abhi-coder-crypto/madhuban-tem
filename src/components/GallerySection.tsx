@@ -1,6 +1,5 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ZoomIn, Heart, Share2 } from 'lucide-react';
 import storefront from '/gallery-storefront.png';
 import diningFish from '/gallery-dining-fish.png';
 import familyDining from '/gallery-family-dining.png';
@@ -23,7 +22,6 @@ const GalleryCard = ({ image, index, isInView }: {
   isInView: boolean;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
 
   return (
     <motion.div
@@ -49,36 +47,6 @@ const GalleryCard = ({ image, index, isInView }: {
           animate={{ opacity: isHovered ? 0.9 : 0.6 }}
         />
 
-        {/* Interactive buttons */}
-        <motion.div
-          className="absolute top-4 right-4 flex gap-2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : -20 }}
-        >
-          <motion.button
-            className="p-2 glass-card rounded-full"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <ZoomIn className="w-4 h-4 text-foreground" />
-          </motion.button>
-          <motion.button
-            className={`p-2 glass-card rounded-full ${isLiked ? 'bg-red-500/30' : ''}`}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setIsLiked(!isLiked)}
-          >
-            <Heart className={`w-4 h-4 ${isLiked ? 'text-red-500 fill-red-500' : 'text-foreground'}`} />
-          </motion.button>
-          <motion.button
-            className="p-2 glass-card rounded-full"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Share2 className="w-4 h-4 text-foreground" />
-          </motion.button>
-        </motion.div>
-        
         {/* Title and info */}
         <motion.div 
           className="absolute bottom-0 left-0 right-0 p-6"
