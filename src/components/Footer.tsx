@@ -224,16 +224,18 @@ const Footer = () => {
 
         {/* Back to top button */}
         <motion.button
-          className="fixed bottom-8 right-8 p-3 glass-card rounded-full z-50 hover:bg-accent/20 transition-colors"
+          className="fixed bottom-8 right-8 p-4 bg-accent rounded-full z-50 hover:bg-accent/80 transition-colors flex items-center justify-center gap-1"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
+          <Leaf className="w-5 h-5 text-background" />
           <motion.span
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
+            className="text-background font-bold"
           >
             ↑
           </motion.span>
