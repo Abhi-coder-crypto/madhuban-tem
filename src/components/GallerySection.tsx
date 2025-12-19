@@ -197,9 +197,9 @@ const GallerySection = () => {
       >
         <motion.div
           className="flex gap-6 px-4 md:px-8 pb-4"
-          animate={{ x: isPaused ? 0 : -1000 }}
+          animate={{ x: -1000 }}
           transition={{
-            duration: 40,
+            duration: isPaused ? 1000000 : 40,
             repeat: Infinity,
             ease: 'linear',
             repeatType: 'loop',
