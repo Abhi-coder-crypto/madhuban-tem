@@ -183,18 +183,20 @@ const Navigation = () => {
             >
               <div className="flex flex-col p-6 gap-2">
                 {navLinks.map((link, index) => (
-                  <motion.a
+                  <motion.button
                     key={link.href}
-                    href={link.href}
-                    className="text-foreground/80 hover:text-foreground font-body text-lg py-3 px-4 rounded-xl hover:bg-accent/10 transition-colors flex items-center gap-3"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-foreground/80 hover:text-foreground font-body text-lg py-3 px-4 rounded-xl hover:bg-accent/10 transition-colors flex items-center gap-3 w-full text-left"
+                    onClick={() => {
+                      scrollToSection(link.href.slice(1));
+                      setIsMobileMenuOpen(false);
+                    }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
                     <span className="w-2 h-2 rounded-full bg-accent/50" />
                     {link.label}
-                  </motion.a>
+                  </motion.button>
                 ))}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
